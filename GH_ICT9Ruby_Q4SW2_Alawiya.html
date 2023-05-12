@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Conversion</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 50px;
+            
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .col {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Time Conversion</h1>
+        <form>
+            <div class="form-group">
+                <label for="minutes">Minutes:</label>
+                <input type="number" class="form-control" id="minutes">
+            </div>
+            <div class="form-group">
+                <label for="seconds">Seconds:</label>
+                <input type="number" class="form-control" id="seconds">
+            </div>
+            <div class="form-group">
+                <label for="hours">Hours:</label>
+                <input type="number" class="form-control" id="hours">
+            </div>
+            <div class="form-group">
+                <label for="days">Days:</label>
+                <input type="number" class="form-control" id="days">
+            </div>
+        </form>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="convertMinutes()">Convert Minutes</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="convertSeconds()">Convert Seconds</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="convertHours()">Convert Hours</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="convertDays()">Convert Days</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Minutes to Seconds: <span id="minuteToSeconds"></span></p>
+                <p>Minutes to Hours: <span id="minuteToHours"></span></p>
+                <p>Minutes to Days: <span id="minuteToDays"></span></p>
+            </div>
+            <div class="col">
+                <p>Seconds to Minutes: <span id="secondToMinutes"></span></p>
+                <p>Seconds to Hours: <span id="secondToHours"></span></p>
+                <p>Seconds to Days: <span id="secondToDays"></span></p>
+            </div>
+            <div class="col">
+                <p>Hours to Seconds: <span id="hourToSeconds"></span></p>
+                <p>Hours to Minutes: <span id="hourToMinutes"></span></p>
+                <p>Hours to Days: <span id="hourToDays"></span></p>
+            </div>
+            <div class="col">
+                <p>Days to Seconds: <span id="dayToSeconds"></span></p>
+                <p>Days to Minutes: <span id="dayToMinutes"></span></p>
+                <p>Days to Hours: <span id="dayToHours"></span></p>
+            </div>
+        </div>
+    </div>
+<script>
+    function convertMinutes() {
+        const minutes = document.getElementById("minutes").value;
+        const seconds = minutes * 60;
+        const hours = minutes / 60;
+        const days = minutes / 1440;
+        document.getElementById("minuteToSeconds").innerHTML = seconds;
+        document.getElementById("minuteToHours").innerHTML = hours;
+        document.getElementById("minuteToDays").innerHTML = days;
+    }
+
+    function convertSeconds() {
+        const seconds = document.getElementById("seconds").value;
+        const minutes = seconds / 60;
+        const hours = seconds / 3600;
+        const days = seconds / 86400;
+        document.getElementById("secondToMinutes").innerHTML = minutes;
+        document.getElementById("secondToHours").innerHTML = hours;
+        document.getElementById("secondToDays").innerHTML = days;
+    }
+
+    function convertHours() {
+        const hours = document.getElementById("hours").value;
+        const seconds = hours * 3600;
+        const minutes = hours * 60;
+        const days = hours / 24;
+        document.getElementById("hourToSeconds").innerHTML = seconds;
+        document.getElementById("hourToMinutes").innerHTML = minutes;
+        document.getElementById("hourToDays").innerHTML = days;
+    }
+
+    function convertDays() {
+        const days = document.getElementById("days").value;
+        const seconds = days * 86400;
+        const minutes = days * 1440;
+        const hours = days * 24;
+        document.getElementById("dayToSeconds").innerHTML = seconds;
+        document.getElementById("dayToMinutes").innerHTML = minutes;
+        document.getElementById("dayToHours").innerHTML = hours;
+    }
+</script>
+</body>
+</html>             
